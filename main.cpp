@@ -8,6 +8,7 @@
 #include <list>
 #include "Map.h"
 #include <QDebug>
+#include "Enemy.h"
 
 int main(int argc,char *argv[]){
     QApplication a(argc, argv);
@@ -19,11 +20,16 @@ int main(int argc,char *argv[]){
 
     // create an item to add to the scene
     Base * base = new Base();
-    mileniumFalcon * player = new mileniumFalcon();
-    player->setRect(0,0,10,10);
+    mileniumFalcon * ship = new mileniumFalcon();
+    ship->setRect(0,0,10,10);
+    Enemy * enemy = new Enemy(true);
+    //Enemy * enemy2 = new Enemy(false);
     // add the item to the scene
-    scene->addItem(player);
+    scene->addItem(ship);
     scene->addItem(base);
+    scene->addItem(enemy);
+    //scene->addItem(enemy2);
+
 
     // create a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
@@ -34,15 +40,16 @@ int main(int argc,char *argv[]){
     view->show();
     view->setFixedSize(1200,700);
     scene->setSceneRect(0,0,1200,700);
-
+    //view->setBackgroundBrush(QImage("/Users/Christopher/Millenium_Falcon/img/space.png"));
     //player->setPos(0,200);
-    player->setPos(0,345);
+    ship->setPos(0,345);
+    enemy->setPos(100,200);
+    //enemy2->setPos(100,500);
 
     // spawn enemies
-    QTimer * timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
-    timer->start(2500);
-
+    for(int i = 0; i<30;i++){
+    ship->spawn();
+    }
     return a.exec();
 
 }

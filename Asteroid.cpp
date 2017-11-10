@@ -13,31 +13,29 @@ Asteroid::Asteroid(bool direction): QObject(), QGraphicsEllipseItem(){
         int randomNumberY = rand() % 650;
         int randomNumberX = rand() % 900 + 150;
         setPos(randomNumberX,randomNumberY);
-        //360
     }
     else{
         int randomNumberY = rand() % 650;
         int randomNumberX = rand() % 900 + 150;
         setPos(randomNumberX,randomNumberY);
-        //230
     }
 
 
-    // drew the rect
+    // draw the rect
     setRect(0,0,20,20);
 
     // connect
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
-    timer->start(1600);
+    timer->start(2000);
 }
 
 void Asteroid::move(){
     // move enemy down
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
-            if (typeid(*(colliding_items[i])) == typeid(Asteroid)||typeid(*(colliding_items[i])) == typeid(mileniumFalcon)){
+            if (typeid(*(colliding_items[i])) == typeid(Asteroid)){
                 // remove them both
                 scene()->removeItem(colliding_items[i]);
                 scene()->removeItem(this);

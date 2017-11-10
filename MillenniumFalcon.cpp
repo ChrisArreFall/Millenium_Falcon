@@ -19,7 +19,7 @@ mileniumFalcon::mileniumFalcon(): QObject(), QGraphicsRectItem(){
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 
-    timer->start(60);
+    timer->start(25);
 }
 
 void mileniumFalcon::move(){
@@ -48,7 +48,7 @@ void mileniumFalcon::move(){
         position nextPos;
         position temp1;
         qDebug() << "Current Position: "<<pos().x()<<", "<<pos().y();
-        temp1 = map.start(pos().x(), pos().y(), asteroidPositions);
+        temp1 = map.start(pos().x(), pos().y(),1170,335, asteroidPositions);
         if(temp1.x>1200 || temp1.x <0){
             qDebug() << "Error Positions: "<<temp1.x<<", "<<temp1.y;
             qDebug() << "ERROR!!!";
@@ -71,14 +71,9 @@ void mileniumFalcon::spawn(){
     // create an enemy
     Asteroid * up = new Asteroid(true);
     scene()->addItem(up);
-    Asteroid * up2 = new Asteroid(true);
-    scene()->addItem(up2);
     Asteroid * down = new Asteroid(false);
     scene()->addItem(down);
     Asteroid * down2 = new Asteroid(false);
     scene()->addItem(down2);
-    Asteroid * down3 = new Asteroid(false);
-    scene()->addItem(down3);
-    Asteroid * down4 = new Asteroid(false);
-    scene()->addItem(down4);
+
 }

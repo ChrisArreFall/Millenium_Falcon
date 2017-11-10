@@ -16,7 +16,7 @@ public:
 
 class Map {
 public:
-    inline position start(int startX, int startY,std::list<position> data);
+    inline position start(int startX, int startY,int endX,int endY,std::list<position> data);
 };
 
 
@@ -58,8 +58,8 @@ inline int* generateMap(std::list<position> data) {
     int counter = 0;
     for(position n : data){
         std::cout<< n.x<<", "<<n.y<<"\n";
-        for(int i = n.y-15; i <= n.y+20;i++){
-            for(int j = n.x-15; j <= n.x+15;j++){
+        for(int i = n.y-20; i <= n.y+20;i++){
+            for(int j = n.x-20; j <= n.x+20;j++){
                 counter++;
                 result[j+i*1200]=9;
                 //std::cout<<"Coordenadas: "<<j<<", "<<i<<"\n";
@@ -235,7 +235,7 @@ inline float MapSearchNode::GetCost( MapSearchNode &successor )
 
 // Main
 
-inline position Map::start(int startX, int startY,std::list<position> data)
+inline position Map::start(int startX, int startY,int endX,int endY,std::list<position> data)
 {
     map1 = generateMap(data);
 
@@ -251,8 +251,8 @@ inline position Map::start(int startX, int startY,std::list<position> data)
 
     // Define the goal state
     MapSearchNode nodeEnd;
-    nodeEnd.x = 1199;
-    nodeEnd.y = 350;
+    nodeEnd.x = endX;
+    nodeEnd.y = endY;
 
     // Set Start and goal states
 
