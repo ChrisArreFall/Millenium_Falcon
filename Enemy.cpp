@@ -12,10 +12,11 @@
 #include <fstream>
 
 #include <QDebug>
-Enemy::Enemy(bool status): QObject(), QGraphicsRectItem(){
+Enemy::Enemy(bool status){
     // drew the rect
-    setRect(0,0,10,10);
-
+    //setRect(0,0,10,10);
+    setPixmap(QPixmap("/Users/Christopher/Millenium_Falcon/img/enemigo.png"));
+    setPos(100,200);
     // connect
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));

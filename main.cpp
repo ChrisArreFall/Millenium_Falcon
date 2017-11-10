@@ -21,7 +21,6 @@ int main(int argc,char *argv[]){
     // create an item to add to the scene
     Base * base = new Base();
     mileniumFalcon * ship = new mileniumFalcon();
-    ship->setRect(0,0,10,10);
     Enemy * enemy = new Enemy(true);
     //Enemy * enemy2 = new Enemy(false);
     // add the item to the scene
@@ -40,11 +39,7 @@ int main(int argc,char *argv[]){
     view->show();
     view->setFixedSize(1200,700);
     scene->setSceneRect(0,0,1200,700);
-    //view->setBackgroundBrush(QImage("/Users/Christopher/Millenium_Falcon/img/space.png"));
-    //player->setPos(0,200);
-    ship->setPos(0,345);
-    enemy->setPos(100,200);
-    //enemy2->setPos(100,500);
+    view->setBackgroundBrush(QImage("/Users/Christopher/Millenium_Falcon/img/space.png"));
 
     // spawn enemies
     for(int i = 0; i<30;i++){

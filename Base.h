@@ -2,10 +2,10 @@
 #define BASE_H
 
 #include <QGraphicsItem>
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
-class Base: public QObject,public QGraphicsRectItem{
+class Base: public QObject,public QGraphicsPixmapItem{
 public:
     Base();
 };

@@ -2,10 +2,10 @@
 #define ASTEROID_H
 #include <QGraphicsItem>
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
-class Asteroid: public QObject,public QGraphicsEllipseItem{
+class Asteroid: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Asteroid(bool direction);

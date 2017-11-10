@@ -5,7 +5,7 @@
 #include <stdlib.h> // rand() -> really large int
 #include "MillenniumFalcon.h"
 #include <QDebug>
-Asteroid::Asteroid(bool direction): QObject(), QGraphicsEllipseItem(){
+Asteroid::Asteroid(bool direction){
     this->direction = direction;
     //set random position
     //true = up
@@ -22,7 +22,8 @@ Asteroid::Asteroid(bool direction): QObject(), QGraphicsEllipseItem(){
 
 
     // draw the rect
-    setRect(0,0,20,20);
+    //setRect(0,0,20,20);
+    setPixmap(QPixmap("/Users/Christopher/Millenium_Falcon/img/asteroides.png"));
 
     // connect
     QTimer * timer = new QTimer(this);
@@ -53,7 +54,7 @@ void Asteroid::move(){
     else if(this->direction){
         setPos(x(),y()-1);
 
-        if (pos().y() + rect().height() < 0){
+        if (pos().y() + pixmap().height() < 0){
             this->posX = pos().x();
             this->posY = pos().y();
             scene()->removeItem(this);
@@ -62,7 +63,7 @@ void Asteroid::move(){
     }
     else{
         setPos(x(),y()+1);
-        if (pos().y() + rect().height() < 0){
+        if (pos().y() + pixmap().height() < 0){
             scene()->removeItem(this);
             delete this;
         }

@@ -1,10 +1,10 @@
 #ifndef MILENIUMFALCON_H
 #define MILENIUMFALCON_H
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include "Map.h"
 
-class mileniumFalcon: public QObject,public QGraphicsRectItem{
+class mileniumFalcon: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     mileniumFalcon();
