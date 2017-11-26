@@ -21,12 +21,12 @@ int main(int argc,char *argv[]){
     // create an item to add to the scene
     Base * base = new Base();
     mileniumFalcon * ship = new mileniumFalcon();
-    Enemy * enemy = new Enemy(true);
+    //Enemy * enemy = new Enemy(true);
     //Enemy * enemy2 = new Enemy(false);
     // add the item to the scene
     scene->addItem(ship);
     scene->addItem(base);
-    scene->addItem(enemy);
+    //scene->addItem(enemy);
     //scene->addItem(enemy2);
 
 
@@ -42,6 +42,7 @@ int main(int argc,char *argv[]){
     view->setBackgroundBrush(QImage("/Users/Christopher/Millenium_Falcon/img/space.png"));
 
     // spawn enemies
+
     for(int i = 0; i<30;i++){
     ship->spawn();
     }
